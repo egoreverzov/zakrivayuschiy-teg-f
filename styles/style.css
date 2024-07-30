@@ -1,18 +1,3 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 .page {
   display: flex;
   flex-direction: column;
@@ -45,16 +30,12 @@
 .header {
   display: grid;
   grid-template-rows: repeat(3, max-content);
-  /* gap: 22px; */
+  margin-bottom: 100px;
   justify-items: center;
   min-height: 368px;
   padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem) clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem) 25px;
   border: 2px solid var(--accent-text-color, #000);
   background-color: var(--bcg-color, #fff);
-}
-
-.header.section-position {
-  margin-bottom: 100px;
 }
 
 .header__theme-menu {
@@ -71,17 +52,11 @@
 .header__logo {
   display: inline-block;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-}
-
-.header__logo_pos {
   margin-bottom: 20px;
 }
 
 .header__title {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-}
-
-.header__title_pos {
   margin-bottom: 25px;
 }
 
@@ -146,24 +121,23 @@
   gap: 50px;
 }
 
-.card__wrapper {
+.card {
   height: max(100%, 959px);
   background-color: var(--bcg-color, #fff);
   border: 2px solid var(--accent-text-color, #000);
 }
 
-.card__heading-wrapper {
+.card__heading {
   padding: 3px 10px 4px;
   border-bottom: 2px solid var(--accent-text-color, #000);
-}
-
-.card__heading {
   font-size: 18px;
   line-height: 1.3;
   font-variation-settings: 'wght' var(--font-w-card-heading, 700);
 }
 
 .card__img-wrapper {
+  width: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+  height: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
   position: relative;
 }
 
@@ -211,18 +185,17 @@
   line-height: 1.16;
 }
 
-.card__description_pos {
+.card__description:first-child {
   margin-bottom: 27px;
 }
 
-.card__text_pos {
+.card__text:nth-child(2) {
   margin-bottom: 25px;
 }
 
 .card__info-wrapper {
   display: flex;
   flex-direction: column;
-  /* gap: 25px; */
 }
 
 .card__buttons-wrapper {
@@ -260,6 +233,10 @@
 
 .button__save {
   padding: 15px 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  position: relative;
 }
 
 .button::before {
@@ -269,13 +246,6 @@
   background-color: var(--accent-text-color, #000);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
-}
-
-.button__wrapper {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  position: relative;
 }
 
 .casette {
@@ -299,23 +269,23 @@
 
 /* filters on images  */
 
-.image-one {
+.image-brightness {
  filter: brightness(150%);
 }
 
-.image-two {
+.image-contrast {
   filter: contrast(60%);
 }
 
-.image-three {
+.image-blur {
   filter: blur(4px);
 }
 
-.image-four {
+.image-opacity {
   filter: opacity(0.75)
 }
 
-.image-five {
+.image-grayscale {
   filter: grayscale(0.35);
 }
 
@@ -323,11 +293,11 @@
  filter: saturate(200%); 
 }
 
-.image-seven {
+.image-hue {
   filter: hue-rotate(15deg);
 }
 
-.image-eight {
+.image-mix {
   filter: sepia(0.2) saturate(90%) brightness(110%);
 }
 
@@ -442,50 +412,9 @@
   transition: fill 0.1s linear;
 }
 
-/* keyframes  */
-
-@keyframes arrow {
-  from {
-    transform: translateX(0px);
-  }
-
-  to {
-    transform: translateX(4px);
-  }
-}
-
-@keyframes enlarge {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.like-icon.is-liked .heart {
-  animation: enlarge 0.3s 0.1s alternate ease-in;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .sparks {
-  animation: fade 0.3s 0.3s alternate ease-in;
-}
-
 /* dialog  */
 
-dialog {
+.modal-window {
   width: clamp(22.3125rem, 22.6646rem + -1.5023vw, 21.3125rem);
   padding: 30px;
   position: fixed;
@@ -497,12 +426,12 @@ dialog {
   transition: opacity 0.3s ease-in-out;
 }
 
-dialog:not([open]) {
+.modal-window:not([open]) {
   pointer-events: none;
   opacity: 0;
 } 
 
-dialog::backdrop {
+.modal-window::backdrop {
   background-color: rgb(0 0 0 / 0.3);
   backdrop-filter: blur(7px);
 } 
@@ -557,11 +486,11 @@ dialog::backdrop {
   }
 
   .card__watermark {
-    top: 23px;
+    top: 21px;
     right: 11px;
   }
 
-  .button__wrapper {
+  .button__save {
     flex-direction: column;
   }
 
@@ -569,7 +498,7 @@ dialog::backdrop {
     max-width: 28px;
   }
 
-  dialog {
+  .modal-window {
     padding-right: 40px;
     padding-left: 40px;
   }

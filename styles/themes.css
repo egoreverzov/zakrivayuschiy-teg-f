@@ -13,7 +13,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-	:root.theme-auto {
+	:root {
 		--bcg-color:#fff;
     --anim-bcg-color: #fff;
     --accent-text-color: #000;
@@ -43,7 +43,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	:root.theme-auto {
+	:root {
 		--bcg-color:#000;
     --anim-bcg-color: #00CC14;
     --accent-text-color: #00CC14;
