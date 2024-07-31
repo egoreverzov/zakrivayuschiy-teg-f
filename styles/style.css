@@ -122,7 +122,6 @@
 }
 
 .card {
-  /* height: max(100%, 959px); */
   background-color: var(--bcg-color, #fff);
   border: 2px solid var(--accent-text-color, #000);
 }
@@ -136,7 +135,6 @@
 }
 
 .card__img-wrapper {
-  /* width: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem); */
   height: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
   position: relative;
 }
